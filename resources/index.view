@@ -1,0 +1,14 @@
+<svg>
+  <image id="petImage" x="104" y="48" width="128" height="128" href="images/sprout-egg.png" fill-rule="nonzero"/>
+  <image id="staticOverlay" x="104" y="48" width="128" height="128" href="images/checker.png" opacity="0"/>
+
+  <text id="timeText" class="time" x="168" y="200" text-anchor="middle" text-length="8">10:24</text>
+
+  <image href="images/icon-steps.png" x="118" y="228" width="16" height="16"/>
+  <text id="stepsText" class="meta" x="140" y="240" text-anchor="start" text-length="8">0</text>
+
+  <image href="images/icon-treat.png" x="192" y="228" width="16" height="16"/>
+  <text id="treatsText" class="meta" x="214" y="240" text-anchor="start" text-length="8">0</text>
+
+  <text id="goalBadge" class="badge" x="168" y="270" text-anchor="middle" text-length="32">Goal reached - treat earned</text>
+</svg>
