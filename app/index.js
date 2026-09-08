@@ -46,5 +46,29 @@ function shuffled(list) {
   return arr;
 }
 
+function loadState() {
+  try {
+    return fs.readFileSync(STATE_FILE, "json");
+  } catch (e) {
+    const deck = shuffled(SPECIES_LIST);
+    return {
+      species: deck.pop(),
+      speciesDeck: deck,
+      stageIndex: 0,
+      treats: 0,
+      daysAtGoal: 0,
+      lastDate: "",
+      awardedToday: false,
+      lastSteps: 0,
+      eatTicksRemaining: 0,
+      frameToggle: 0,
+    };
+  }
+}
+
+function saveState(state) {
+  fs.writeFileSync(STATE_FILE, state, "json");
+}
+
 
 
