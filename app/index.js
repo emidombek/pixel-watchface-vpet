@@ -6,3 +6,4 @@ import document from "document";
 
 clock.granularity = "minutes";
 const STEP_GOAL = 8000;
+const SPECIES_LIST = ["sprout", "ember", "aqua", "crystal", "shadow", "volt", "bloom", "stone"];
