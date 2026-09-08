@@ -5,3 +5,4 @@ import * as fs from "fs";
 import document from "document";
 
 clock.granularity = "minutes";
+const STEP_GOAL = 8000;
