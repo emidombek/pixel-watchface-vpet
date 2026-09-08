@@ -234,7 +234,41 @@ function render() {
   maybeRunFastAnim(behavior);
 }
 
+// briefly flip frames faster than once-per-minute so walking/running reads
+// as motion rather than a static pose - runs for a short burst only, to
+// keep the always-on battery cost low.
+let fastAnimTimer = null;
 
+function maybeRunFastAnim(behavior) {
+  if (fastAnimTimer) {
+    clearInterval(fastAnimTimer);
+    fastAnimTimer = null;
+  }
+  if (behavior !== "walk" && behavior !== "run") return;
+
+  const speedMs = behavior === "run" ? 220 : 450;
+  const moveBehavior = moveBehaviorFor(state.species, state.stageIndex);
+  let ticks = 0;
+  const maxTicks = 10; // roughly a few seconds of motion, then settle
+
+  fastAnimTimer = setInterval(() => {
+    if (transitioning) return;
+    state.frameToggle = state.frameToggle === 0 ? 1 : 0;
+    petImage.href = spriteHref(state.species, state.stageIndex, moveBehavior, state.frameToggle + 1);
+    ticks += 1;
+    if (ticks >= maxTicks) {
+      clearInterval(fastAnimTimer);
+      fastAnimTimer = null;
+    }
+  }, speedMs);
+}
+
+function util_zeroPad(n) {
+  return n < 10 ? `0${n}` : `${n}`;
+}
+
+clock.ontick = render;
+render();
 
 
 
