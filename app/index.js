@@ -182,6 +182,59 @@ function behaviorFor(now, stepDelta) {
   return "idle";
 }
 
+function render() {
+  if (transitioning) return;
+
+  checkDailyReset();
+  if (transitioning) return; // a transition may have just started above
+
+  const now = new Date();
+  let hours = now.getHours();
+  if (preferences.clockDisplay === "12h") {
+    hours = hours % 12 || 12;
+  }
+  timeText.text = `${hours}:${util_zeroPad(now.getMinutes())}`;
+
+  const steps = today.adjusted.steps || 0;
+  const stepDelta = steps - (state.lastSteps || 0);
+  state.lastSteps = steps;
+  stepsText.text = `${steps}`;
+
+  maybeAwardTreat(steps);
+  if (transitioning) return; // a treat may have just triggered an evolution
+
+  treatsText.text = `${state.treats}`;
+
+  if (state.eatTicksRemaining > 0) {
+    state.eatTicksRemaining -= 1;
+  }
+
+  // "run" reuses the walk/roll art, just flips frames faster (see maybeRunFastAnim)
+  let behavior = behaviorFor(now, stepDelta);
+  if (behavior === "eat" && STAGES_WITHOUT_EAT.indexOf(state.stageIndex) !== -1) {
+    behavior = "idle";
+  }
+  const moveBehavior = moveBehaviorFor(state.species, state.stageIndex);
+  const artBehavior = behavior === "run" || behavior === "walk" ? moveBehavior : behavior;
+
+  state.frameToggle = state.frameToggle === 0 ? 1 : 0;
+  const frame = state.frameToggle + 1; // 1 or 2
+
+  petImage.href = spriteHref(state.species, state.stageIndex, artBehavior, frame);
+
+  if (steps >= STEP_GOAL) {
+    goalBadge.text = "Goal reached - treat earned";
+  } else if (state.stageIndex === STAGE_NAMES.length - 1) {
+    goalBadge.text = `Full grown - day ${state.daysAtGoal + 1}/${DAYS_TO_LINGER_AT_GOAL}`;
+  } else {
+    goalBadge.text = "";
+  }
+
+  saveState(state);
+  maybeRunFastAnim(behavior);
+}
+
+
 
 
 
