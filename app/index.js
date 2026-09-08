@@ -28,4 +28,12 @@ const STAGES_WITHOUT_EAT = [0];
 
 const STATE_FILE = "pet-data.json";
 
+const timeText = document.getElementById("timeText");
+const stepsText = document.getElementById("stepsText");
+const treatsText = document.getElementById("treatsText");
+const goalBadge = document.getElementById("goalBadge");
+const petImage = document.getElementById("petImage");
+const staticOverlay = document.getElementById("staticOverlay");
+
+
 
