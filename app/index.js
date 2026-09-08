@@ -78,6 +78,12 @@ function todayKey() {
   return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 }
 
+function moveBehaviorFor(species, stageIndex) {
+  if (SPECIES_ALWAYS_ROLL.indexOf(species) !== -1) return "roll";
+  return MOVE_BEHAVIOR_BY_STAGE[stageIndex];
+}
+
+
 
 
 
