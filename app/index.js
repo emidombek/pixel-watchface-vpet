@@ -87,6 +87,23 @@ function spriteHref(species, stageIndex, behavior, frame) {
   return `images/${species}-${STAGE_NAMES[stageIndex]}-${behavior}-${frame}.png`;
 }
 
+function resetToNewEgg() {
+  if (!state.speciesDeck || state.speciesDeck.length === 0) {
+    const deck = shuffled(SPECIES_LIST);
+    if (deck[deck.length - 1] === state.species) {
+      const swapIndex = Math.floor(Math.random() * (deck.length - 1));
+      const last = deck[deck.length - 1];
+      deck[deck.length - 1] = deck[swapIndex];
+      deck[swapIndex] = last;
+    }
+    state.speciesDeck = deck;
+  }
+  state.species = state.speciesDeck.pop();
+  state.stageIndex = 0;
+  state.daysAtGoal = 0;
+}
+
+
 
 
 
