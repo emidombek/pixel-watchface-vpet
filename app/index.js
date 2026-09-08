@@ -144,6 +144,33 @@ function playHatchThenEvolve() {
   }, 200);
 }
 
+// classic vpet-style black/white static flicker, played with fast
+// timers rather than clock ticks since it only runs for about a second.
+// used for every transition except egg->baby, which has its own hatch art.
+function playEvolutionTransition(mutateStateFn) {
+  transitioning = true;
+  let toggles = 0;
+  const maxToggles = 8;
+  const timer = setInterval(() => {
+    const covered = toggles % 2 === 0;
+    staticOverlay.style.opacity = covered ? 1 : 0;
+
+    // swap the underlying state/art at the midpoint, while fully covered
+    if (toggles === Math.floor(maxToggles / 2) && covered) {
+      mutateStateFn();
+      saveState(state);
+    }
+
+    toggles += 1;
+    if (toggles >= maxToggles) {
+      clearInterval(timer);
+      staticOverlay.style.opacity = 0;
+      transitioning = false;
+      render();
+    }
+  }, 150);
+}
+
 
 
 
