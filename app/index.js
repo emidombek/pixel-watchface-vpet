@@ -25,3 +25,7 @@ const MOVE_BEHAVIOR_BY_STAGE = ["roll", "roll", "walk", "walk"];
 const SPECIES_ALWAYS_ROLL = ["bloom"];
 // egg has no eat art yet - falls back to idle instead
 const STAGES_WITHOUT_EAT = [0];
+
+const STATE_FILE = "pet-data.json";
+
+
