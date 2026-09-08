@@ -73,6 +73,14 @@ function saveState(state) {
 let state = loadState();
 let transitioning = false;
 
+function todayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+}
+
+
+
+
 
 
 
