@@ -4,7 +4,7 @@ import os
 OUT = "resources/images"
 os.makedirs(OUT, exist_ok=True)
 
-# 16x16 pixel grids. '.' = transparent, everything else is a palette key.
+# 96x96 pixel grids. '.' = transparent, everything else is a palette key.
 # A = main body, B = outline, C = species accent detail, H = highlight/shine, E = eye
 
 EGG = [
@@ -98,7 +98,7 @@ SPECIES = {
     "stone":  {"A": (168, 150, 122, 255), "B": (70, 58, 42, 255), "C": (132, 112, 84, 255), "H": (232, 222, 204, 255), "E": (20, 20, 20, 255)},
 }
 
-SCALE = 8  # 16px grid -> 128px final sprite
+SCALE = 6  # 16px grid -> 96px final sprite
 
 def render(grid, palette):
     img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
