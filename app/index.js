@@ -171,6 +171,17 @@ function playEvolutionTransition(mutateStateFn) {
   }, 150);
 }
 
+function behaviorFor(now, stepDelta) {
+  const hour = now.getHours();
+  const isNight = hour >= NIGHT_START_HOUR || hour < NIGHT_END_HOUR;
+
+  if (state.eatTicksRemaining > 0) return "eat";
+  if (isNight && stepDelta < WALK_STEPS_PER_TICK) return "sleep";
+  if (stepDelta >= RUN_STEPS_PER_TICK) return "run";
+  if (stepDelta >= WALK_STEPS_PER_TICK) return "walk";
+  return "idle";
+}
+
 
 
 
