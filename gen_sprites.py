@@ -139,11 +139,12 @@ icon = render(BABY, SPECIES["sprout"]).resize((80, 80), Image.NEAREST)
 icon.save(os.path.join(OUT, "..", "icon.png"))
 
 # checker-static overlay used for evolution transitions
-checker = Image.new("RGBA", (128, 128), (0, 0, 0, 255))
+# checker-static overlay used for evolution transitions
+checker = Image.new("RGBA", (96, 96), (0, 0, 0, 255))
 cpx = checker.load()
 tile = 16
-for y in range(128):
-    for x in range(128):
+for y in range(96):
+    for x in range(96):
         cpx[x, y] = (245, 245, 245, 255) if ((x // tile) + (y // tile)) % 2 == 0 else (10, 10, 10, 255)
 checker.save(os.path.join(OUT, "checker.png"))
 
