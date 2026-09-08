@@ -83,6 +83,11 @@ function moveBehaviorFor(species, stageIndex) {
   return MOVE_BEHAVIOR_BY_STAGE[stageIndex];
 }
 
+function spriteHref(species, stageIndex, behavior, frame) {
+  return `images/${species}-${STAGE_NAMES[stageIndex]}-${behavior}-${frame}.png`;
+}
+
+
 
 
 
