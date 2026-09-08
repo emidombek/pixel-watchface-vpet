@@ -103,6 +103,28 @@ function resetToNewEgg() {
   state.daysAtGoal = 0;
 }
 
+function maybeAwardTreat(steps) {
+  if (steps >= STEP_GOAL && !state.awardedToday) {
+    state.treats += 1;
+    state.awardedToday = true;
+    state.eatTicksRemaining = EAT_TICKS_AFTER_TREAT;
+
+    if (state.stageIndex < STAGE_NAMES.length - 1) {
+      if (state.stageIndex === 0) {
+        playHatchThenEvolve();
+        return;
+      }
+      state.stageIndex += 1;
+      if (state.stageIndex === STAGE_NAMES.length - 1) {
+        state.daysAtGoal = 0;
+      }
+      playEvolutionTransition(() => {});
+      return;
+    }
+    saveState(state);
+  }
+}
+
 
 
 
