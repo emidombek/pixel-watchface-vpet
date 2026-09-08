@@ -1,0 +1,17 @@
+.time {
+  font-family: System-Bold;
+  font-size: 48;
+  fill: white;
+}
+
+.meta {
+  font-family: System-Regular;
+  font-size: 18;
+  fill: lightgray;
+}
+
+.badge {
+  font-family: System-Regular;
+  font-size: 14;
+  fill: fb-orange;
+}
