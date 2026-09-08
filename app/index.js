@@ -125,7 +125,24 @@ function maybeAwardTreat(steps) {
   }
 }
 
-
+// the egg's transition uses its own hand-drawn hatch animation instead of
+// the generic checker-static, since real art exists for this one moment
+function playHatchThenEvolve() {
+  transitioning = true;
+  let toggles = 0;
+  const maxToggles = 6;
+  const timer = setInterval(() => {
+    petImage.href = spriteHref(state.species, 0, "hatch", (toggles % 2) + 1);
+    toggles += 1;
+    if (toggles >= maxToggles) {
+      clearInterval(timer);
+      state.stageIndex = 1; // baby
+      saveState(state);
+      transitioning = false;
+      render();
+    }
+  }, 200);
+}
 
 
 
