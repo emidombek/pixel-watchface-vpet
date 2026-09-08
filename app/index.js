@@ -70,5 +70,9 @@ function saveState(state) {
   fs.writeFileSync(STATE_FILE, state, "json");
 }
 
+let state = loadState();
+let transitioning = false;
+
+
 
 
