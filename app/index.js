@@ -185,10 +185,9 @@ function behaviorFor(now, stepDelta) {
 
 function render() {
   if (transitioning) return;
-
   checkDailyReset();
   if (transitioning) return; // a transition may have just started above
-
+  backgroundImage.href = `images/bg-${state.species}.png`;
   const now = new Date();
   let hours = now.getHours();
   if (preferences.clockDisplay === "12h") {
