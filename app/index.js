@@ -251,7 +251,7 @@ function render() {
 
   petImage.href = spriteHref(state.species, state.stageIndex, artBehavior, frame);
 
-  if (steps >= STEP_GOAL) {
+  if (steps >= STEP_GOAL && state.treats > 0) {
     goalBadge.text = "Goal reached - treat earned";
   } else if (state.stageIndex === STAGE_NAMES.length - 1) {
     goalBadge.text = `Full grown - day ${state.daysAtGoal + 1}/${DAYS_TO_LINGER_AT_GOAL}`;
