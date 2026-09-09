@@ -2,31 +2,26 @@
   <!-- Background Image -->
   <image id="background" x="0" y="0" width="336" height="336" href="images/bg-sprout.png"/>
 
-  <!-- TIME DISPLAY (Fabrikat-Bold) WITH DROP SHADOW -->
-  <!-- Shadow (Offset x+2, y+2, black color) -->
-  <text class="time" x="170" y="52" text-anchor="middle" font-family="Fabrikat-Bold" font-size="40" fill="black" opacity="0.6" text-length="8">10:24</text>
-  <!-- Main Time Text -->
-  <text id="timeText" class="time" x="168" y="50" text-anchor="middle" font-family="Fabrikat-Bold" font-size="40" fill="white" text-length="8">10:24</text>
+  <!-- TIME DISPLAY -->
+  <text id="timeText" class="time" x="168" y="65" text-anchor="middle" font-family="Fabrikat-Bold" font-size="40" fill="white" text-length="8">10:24</text>
 
-  <!-- PET & OVERLAY (ALIGNED AT Y=105) -->
+  <!-- PET & OVERLAY -->
   <image id="petImage" x="120" y="105" width="96" height="96" href="images/sprout-egg.png" fill-rule="nonzero"/>
   <image id="staticOverlay" x="120" y="105" width="96" height="96" href="images/checker.png" opacity="0"/>
 
-  <!-- STEP & TREAT METRICS (MOVED DOWN TO PREVENT PET OVERLAP) -->
-  <!-- Steps Icon & Shadowed Text -->
+  <!-- STEP & TREAT METRICS -->
+  <!-- Steps -->
   <image href="images/icon-steps.png" x="108" y="218" width="16" height="16"/>
-  <text x="131" y="233" text-anchor="start" font-family="Seville-Bold" font-size="18" fill="black" opacity="0.6" text-length="8">0</text>
   <text id="stepsText" class="meta" x="130" y="232" text-anchor="start" font-family="Seville-Bold" font-size="18" fill="white" text-length="8">0</text>
 
-  <!-- Treats Icon & Shadowed Text -->
+  <!-- Treats -->
   <image href="images/icon-treat.png" x="192" y="218" width="16" height="16"/>
-  <text x="215" y="233" text-anchor="start" font-family="Seville-Bold" font-size="18" fill="black" opacity="0.6" text-length="8">0</text>
   <text id="treatsText" class="meta" x="214" y="232" text-anchor="start" font-family="Seville-Bold" font-size="18" fill="white" text-length="8">0</text>
 
-  <!-- GOAL BADGE (Seville-Bold Shadowed) -->
-  <text x="169" y="271" text-anchor="middle" font-family="Seville-Bold" font-size="16" fill="black" opacity="0.6" text-length="64">Goal reached - treat earned</text>
-  <text id="goalBadge" class="badge" x="168" y="270" text-anchor="middle" font-family="Seville-Bold" font-size="16" fill="white" text-length="64">Goal reached - treat earned</text>
+  <!-- GOAL BADGE -->
+  <text id="goalBadge" class="badge" x="168" y="252" text-anchor="middle" font-family="Seville-Bold" font-size="16" fill="white" text-length="64"></text>
 </svg>
+
 
 
 
