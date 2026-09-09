@@ -36,6 +36,10 @@ const backgroundImage = document.getElementById("background");
 const petImage = document.getElementById("petImage");
 const staticOverlay = document.getElementById("staticOverlay");
 
+function util_zeroPad(n) {
+  return n < 10 ? `0${n}` : `${n}`;
+}
+
 function shuffled(list) {
   const arr = list.slice();
   for (let i = arr.length - 1; i > 0; i--) {
@@ -102,6 +106,29 @@ function resetToNewEgg() {
   state.species = state.speciesDeck.pop();
   state.stageIndex = 0;
   state.daysAtGoal = 0;
+}
+
+function checkDailyReset() {
+  const currentToday = todayKey();
+  if (state.lastDate !== currentToday) {
+    if (state.lastDate !== "") {
+      // Only increment daysAtGoal if the pet is fully grown (Adult) AND reached goal yesterday
+      if (state.stageIndex === STAGE_NAMES.length - 1 && state.awardedToday) {
+        state.daysAtGoal += 1;
+        // If it's been an adult at goal for 3 days, reset to a new egg
+        if (state.daysAtGoal >= DAYS_TO_LINGER_AT_GOAL) {
+          playEvolutionTransition(() => {
+            resetToNewEgg();
+          });
+        }
+      }
+    }
+    // Daily maintenance resets (allows step goals & treat earning for the new day)
+    state.lastDate = currentToday;
+    state.awardedToday = false;
+    state.lastSteps = 0;
+    saveState(state);
+  }
 }
 
 function maybeAwardTreat(steps) {
@@ -261,10 +288,6 @@ function maybeRunFastAnim(behavior) {
       fastAnimTimer = null;
     }
   }, speedMs);
-}
-
-function util_zeroPad(n) {
-  return n < 10 ? `0${n}` : `${n}`;
 }
 
 clock.ontick = render;
