@@ -185,7 +185,9 @@ function playEvolutionTransition(mutateStateFn) {
 
     // swap the underlying state/art at the midpoint, while fully covered
     if (toggles === Math.floor(maxToggles / 2) && covered) {
-      mutateStateFn();
+      if (typeof mutateStateFn === "function") {
+        mutateStateFn();
+      }
       saveState(state);
     }
 
