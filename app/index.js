@@ -32,6 +32,7 @@ const timeText = document.getElementById("timeText");
 const stepsText = document.getElementById("stepsText");
 const treatsText = document.getElementById("treatsText");
 const goalBadge = document.getElementById("goalBadge");
+const backgroundImage = document.getElementById("background");
 const petImage = document.getElementById("petImage");
 const staticOverlay = document.getElementById("staticOverlay");
 
