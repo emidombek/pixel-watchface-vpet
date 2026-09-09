@@ -1,4 +1,5 @@
 <svg>
+  <image id="background" x="0" y="0" width="336" height="336" href="images/bg-sprout.png"/>
   <image id="petImage" x="120" y="64" width="96" height="96" href="images/sprout-egg.png" fill-rule="nonzero"/>
   <image id="staticOverlay" x="120" y="64" width="96" height="96" href="images/checker.png" opacity="0"/>
 
@@ -13,5 +14,3 @@
   <text id="goalBadge" class="badge" x="168" y="270" text-anchor="middle" text-length="32">Goal reached - treat earned</text>
 </svg>
 
-<image id="petImage" x="120" y="64" width="96" height="96" href="images/sprout-egg.png" fill-rule="nonzero"/>
-<image id="staticOverlay" x="120" y="64" width="96" height="96" href="images/checker.png" opacity="0"/>
