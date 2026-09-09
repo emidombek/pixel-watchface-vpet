@@ -22,7 +22,7 @@ const EAT_TICKS_AFTER_TREAT = 2; // how many one-minute ticks the eat pose shows
 const MOVE_BEHAVIOR_BY_STAGE = ["roll", "roll", "walk", "walk"];
 // species that roll at every stage regardless of stage/legs (a deliberate
 // design choice for that species, not the legs-based default above)
-const SPECIES_ALWAYS_ROLL = ["bloom"];
+const SPECIES_ALWAYS_ROLL = ["bloom","volt","stone"];
 // egg has no eat art yet - falls back to idle instead
 const STAGES_WITHOUT_EAT = [0];
 
