@@ -2,24 +2,24 @@
   <!-- Background Image -->
   <image id="background" x="0" y="0" width="336" height="336" href="images/bg-sprout.png"/>
 
-  <!-- TIME DISPLAY -->
-  <text id="timeText" class="time" x="168" y="65" text-anchor="middle" font-family="Fabrikat-Bold" font-size="40" fill="white" text-length="8">10:24</text>
+  <!-- TIME DISPLAY (Enlarged to 52px, moved to y=80) -->
+  <text id="timeText" class="time" x="168" y="80" text-anchor="middle" font-family="Fabrikat-Bold" font-size="52" fill="white" text-length="8">10:24</text>
 
-  <!-- PET & OVERLAY -->
-  <image id="petImage" x="120" y="105" width="96" height="96" href="images/sprout-egg.png" fill-rule="nonzero"/>
-  <image id="staticOverlay" x="120" y="105" width="96" height="96" href="images/checker.png" opacity="0"/>
+  <!-- PET & OVERLAY (Shifted down to y=118) -->
+  <image id="petImage" x="120" y="118" width="96" height="96" href="images/sprout-egg.png" fill-rule="nonzero"/>
+  <image id="staticOverlay" x="120" y="118" width="96" height="96" href="images/checker.png" opacity="0"/>
 
-  <!-- STEP & TREAT METRICS -->
+  <!-- STEP & TREAT METRICS (Shifted down to y=232) -->
   <!-- Steps -->
-  <image href="images/icon-steps.png" x="108" y="218" width="16" height="16"/>
-  <text id="stepsText" class="meta" x="130" y="232" text-anchor="start" font-family="Seville-Bold" font-size="18" fill="white" text-length="8">0</text>
+  <image href="images/icon-steps.png" x="108" y="232" width="16" height="16"/>
+  <text id="stepsText" class="meta" x="130" y="246" text-anchor="start" font-family="Seville-Bold" font-size="18" fill="white" text-length="8">0</text>
 
   <!-- Treats -->
-  <image href="images/icon-treat.png" x="192" y="218" width="16" height="16"/>
-  <text id="treatsText" class="meta" x="214" y="232" text-anchor="start" font-family="Seville-Bold" font-size="18" fill="white" text-length="8">0</text>
+  <image href="images/icon-treat.png" x="192" y="232" width="16" height="16"/>
+  <text id="treatsText" class="meta" x="214" y="246" text-anchor="start" font-family="Seville-Bold" font-size="18" fill="white" text-length="8">0</text>
 
-  <!-- GOAL BADGE -->
-  <text id="goalBadge" class="badge" x="168" y="252" text-anchor="middle" font-family="Seville-Bold" font-size="16" fill="white" text-length="64"></text>
+  <!-- GOAL BADGE (Shifted down to y=278) -->
+  <text id="goalBadge" class="badge" x="168" y="278" text-anchor="middle" font-family="Seville-Bold" font-size="16" fill="white" text-length="64"></text>
 </svg>
 
 
