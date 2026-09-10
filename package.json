@@ -15,6 +15,7 @@
       "access_activity"
     ],
     "buildTargets": [
+      "atlas",
       "hera"
     ],
     "appUUID": "2c446d86-74a5-479b-98f3-779a0595f779"
