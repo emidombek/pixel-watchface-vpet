@@ -6,7 +6,7 @@
   <text id="timeText" class="time" x="168" y="80" text-anchor="middle" font-family="Fabrikat-Bold" font-size="52" fill="white" text-length="8">10:24</text>
 
   <!-- PET & OVERLAY (Shifted down to y=118) -->
-  <image id="petImage" x="120" y="118" width="96" height="96" href="images/sprout-egg.png" fill-rule="nonzero"/>
+  <image id="petImage" x="120" y="118" width="96" height="96" href="images/sprout-egg.png"/>
   <image id="staticOverlay" x="120" y="118" width="96" height="96" href="images/checker.png" opacity="0"/>
 
   <!-- STEP & TREAT METRICS (Shifted down to y=232) -->
